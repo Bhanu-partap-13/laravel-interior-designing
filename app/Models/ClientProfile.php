@@ -11,6 +11,7 @@ class ClientProfile extends Model
 
     protected $fillable = [
         'user_id',
+        
         'design_type',
         'budget_range',
         'location',
