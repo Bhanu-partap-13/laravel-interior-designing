@@ -1,0 +1,56 @@
+<?php
+
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Dashboard\InquiryController as DashboardInquiryController;
+use App\Http\Controllers\Dashboard\ProjectController as DashboardProjectController;
+use App\Http\Controllers\DesignerController;
+use App\Http\Controllers\InquiryController;
+use App\Http\Controllers\LocaleController;
+use App\Http\Controllers\ProjectController;
+use Illuminate\Support\Facades\Route;
+
+Route::view('/', 'home.index')->name('home');
+
+Route::get('/login', [LoginController::class, 'showForm'])->name('login');
+Route::get('/register', [RegisterController::class, 'showForm'])->name('register');
+
+Route::get('/lang/{locale}', [LocaleController::class, 'update'])->name('locale.switch');
+
+Route::prefix('designers')->name('designers.')->group(function () {
+    Route::get('/', [DesignerController::class, 'index'])->name('index');
+    Route::get('/{designer}', [DesignerController::class, 'show'])->name('show');
+});
+
+Route::prefix('projects')->name('projects.')->group(function () {
+    Route::get('/', [ProjectController::class, 'index'])->name('index');
+    Route::get('/{project}', [ProjectController::class, 'show'])->name('show');
+});
+
+Route::get('/categories/{category}', [CategoryController::class, 'show'])
+    ->name('categories.show');
+
+Route::prefix('auth')->name('auth.')->group(function () {
+    Route::get('/login', [LoginController::class, 'showForm'])->name('login');
+    Route::post('/login', [LoginController::class, 'login'])
+        ->middleware('throttle:login')
+        ->name('login.store');
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+    Route::get('/register', [RegisterController::class, 'showForm'])->name('register');
+    Route::post('/register', [RegisterController::class, 'register'])->name('register.store');
+});
+
+Route::post('/inquiries', [InquiryController::class, 'store'])
+    ->middleware('throttle:inquiries')
+    ->name('inquiries.store');
+
+Route::middleware(['auth', 'designer'])->prefix('dashboard')->name('dashboard.')->group(function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('index');
+    Route::get('/profile', [DesignerController::class, 'edit'])->name('profile.edit');
+    Route::put('/profile', [DesignerController::class, 'update'])->name('profile.update');
+    Route::resource('projects', DashboardProjectController::class)->except(['show']);
+    Route::get('/inquiries', [DashboardInquiryController::class, 'index'])->name('inquiries.index');
+    Route::patch('/inquiries/{inquiry}', [DashboardInquiryController::class, 'update'])->name('inquiries.update');
+});
