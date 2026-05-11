@@ -11,6 +11,10 @@
             <a href="{{ route('dashboard.index') }}">{{ __('app.nav.dashboard') }}</a>
         </nav>
         <div class="nav-actions">
+            @php
+                $locale = app()->getLocale();
+                $localeLabel = __('app.languages.' . $locale);
+            @endphp
             @guest
                 <a class="btn btn-ghost" href="{{ route('auth.login') }}">{{ __('app.nav.login') }}</a>
                 <a class="btn btn-primary" href="{{ route('auth.register') }}">{{ __('app.nav.register') }}</a>
@@ -29,14 +33,42 @@
                 data-dark="{{ __('app.theme.dark') }}"
                 aria-pressed="false"
             >
-                {{ __('app.theme.toggle') }}
+                <span class="theme-icon" data-theme="light" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <path d="M12 2v2"></path>
+                        <path d="M12 20v2"></path>
+                        <path d="M4.93 4.93l1.41 1.41"></path>
+                        <path d="M17.66 17.66l1.41 1.41"></path>
+                        <path d="M2 12h2"></path>
+                        <path d="M20 12h2"></path>
+                        <path d="M4.93 19.07l1.41-1.41"></path>
+                        <path d="M17.66 6.34l1.41-1.41"></path>
+                    </svg>
+                </span>
+                <span class="theme-icon" data-theme="dark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"></path>
+                    </svg>
+                </span>
+                <span class="theme-label">{{ __('app.theme.toggle') }}</span>
             </button>
-            <div class="nav-locale">
-                <span class="chip">{{ __('app.nav.language') }}</span>
-                <a class="locale-link @if (app()->getLocale() === 'en') active @endif" href="{{ route('locale.switch', 'en') }}">{{ __('app.languages.en') }}</a>
-                <a class="locale-link @if (app()->getLocale() === 'hi') active @endif" href="{{ route('locale.switch', 'hi') }}">{{ __('app.languages.hi') }}</a>
-                <a class="locale-link @if (app()->getLocale() === 'ta') active @endif" href="{{ route('locale.switch', 'ta') }}">{{ __('app.languages.ta') }}</a>
-            </div>
+            <details class="nav-dropdown">
+                <summary class="btn btn-ghost nav-dropdown-toggle">
+                    <span class="nav-dropdown-label">{{ __('app.nav.language') }}</span>
+                    <span class="nav-dropdown-current">{{ $localeLabel }}</span>
+                    <span class="nav-dropdown-caret" aria-hidden="true">
+                        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M5 7l5 6 5-6"></path>
+                        </svg>
+                    </span>
+                </summary>
+                <div class="nav-dropdown-menu" role="menu">
+                    <a class="nav-dropdown-item @if ($locale === 'en') active @endif" role="menuitem" href="{{ route('locale.switch', 'en') }}">{{ __('app.languages.en') }}</a>
+                    <a class="nav-dropdown-item @if ($locale === 'hi') active @endif" role="menuitem" href="{{ route('locale.switch', 'hi') }}">{{ __('app.languages.hi') }}</a>
+                    <a class="nav-dropdown-item @if ($locale === 'ta') active @endif" role="menuitem" href="{{ route('locale.switch', 'ta') }}">{{ __('app.languages.ta') }}</a>
+                </div>
+            </details>
         </div>
     </div>
 </header>

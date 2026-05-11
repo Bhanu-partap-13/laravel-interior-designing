@@ -12,9 +12,15 @@ const toggle = document.getElementById('theme-toggle');
 if (toggle) {
 	const lightLabel = toggle.dataset.light || 'Light mode';
 	const darkLabel = toggle.dataset.dark || 'Dark mode';
+	const label = toggle.querySelector('.theme-label');
 
 	const setLabel = (theme) => {
-		toggle.textContent = theme === 'dark' ? darkLabel : lightLabel;
+		const nextLabel = theme === 'dark' ? darkLabel : lightLabel;
+		if (label) {
+			label.textContent = nextLabel;
+		} else {
+			toggle.textContent = nextLabel;
+		}
 		toggle.setAttribute('aria-pressed', theme === 'dark');
 	};
 
