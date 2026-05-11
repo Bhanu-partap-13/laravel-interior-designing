@@ -7,7 +7,6 @@
         <nav class="nav-links">
             <a href="{{ route('designers.index') }}">{{ __('app.nav.designers') }}</a>
             <a href="{{ route('projects.index') }}">{{ __('app.nav.projects') }}</a>
-            <a href="{{ route('categories.show', 'living-room') }}">{{ __('app.nav.categories') }}</a>
             <a href="{{ route('dashboard.index') }}">{{ __('app.nav.dashboard') }}</a>
         </nav>
         <div class="nav-actions">
@@ -20,10 +19,6 @@
                 <a class="btn btn-primary" href="{{ route('auth.register') }}">{{ __('app.nav.register') }}</a>
             @else
                 <span class="chip">{{ auth()->user()->name }}</span>
-                <form method="post" action="{{ route('auth.logout') }}">
-                    @csrf
-                    <button class="btn btn-ghost" type="submit">{{ __('app.nav.logout') }}</button>
-                </form>
             @endguest
             <button
                 class="btn btn-ghost theme-toggle"
@@ -32,6 +27,7 @@
                 data-light="{{ __('app.theme.light') }}"
                 data-dark="{{ __('app.theme.dark') }}"
                 aria-pressed="false"
+                aria-label="{{ __('app.theme.toggle') }}"
             >
                 <span class="theme-icon" data-theme="light" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -51,7 +47,6 @@
                         <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"></path>
                     </svg>
                 </span>
-                <span class="theme-label">{{ __('app.theme.toggle') }}</span>
             </button>
             <details class="nav-dropdown">
                 <summary class="btn btn-ghost nav-dropdown-toggle">
