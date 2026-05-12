@@ -5,7 +5,7 @@
             <span class="logo-text">{{ __('app.footer.brand_title') }}</span>
         </a>
         <nav class="nav-links">
-            <a href="{{ route('designers.index') }}">{{ __('app.nav.designers') }}</a>
+            <a href="{{ route('home') }}">{{ __('app.nav.home') }}</a>
             <a href="{{ route('projects.index') }}">{{ __('app.nav.projects') }}</a>
             <a href="{{ route('dashboard.index') }}">{{ __('app.nav.dashboard') }}</a>
         </nav>

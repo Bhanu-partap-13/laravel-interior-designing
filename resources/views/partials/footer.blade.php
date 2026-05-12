@@ -17,8 +17,9 @@
         </div>
         <div class="footer-col">
             <p class="footer-title">{{ __('app.footer.contact') }}</p>
-            <p>hello@interiorcanvas.test</p>
-            <p>+1 312 555 0182</p>
+            <p>parveshyadav136@gmail.com</p>
+            <p>9040011331</p>
+            <p>Bhubaneshwar, Odisha</p>
         </div>
     </div>
     <div class="container footer-bottom">

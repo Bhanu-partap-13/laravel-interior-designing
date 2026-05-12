@@ -34,8 +34,8 @@
             </div>
             <div class="card">
                 <h3>{{ __('app.designers.show.contact') }}</h3>
-                <p>{{ $designer->user?->email ?? 'contact@interiorcanvas.test' }}</p>
-                <p>{{ $designer->phone ?? '+1 312 555 0182' }}</p>
+                <p>{{ $designer->user?->email ?? 'parveshyadav136@gmail.com' }}</p>
+                <p>{{ $designer->phone ?? '9040011331' }}</p>
                 @if ($designer->portfolio_url)
                     <a class="text-link" href="{{ $designer->portfolio_url }}">{{ __('app.designers.show.portfolio') }}</a>
                 @endif
