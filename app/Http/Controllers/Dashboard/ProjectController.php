@@ -10,6 +10,7 @@ use App\Models\Project;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 
 class ProjectController extends Controller
@@ -83,8 +84,19 @@ class ProjectController extends Controller
 
         $project->save();
 
+        $published = (bool) ($data['is_published'] ?? false);
+        $statusMessage = $published
+            ? 'Project published.'
+            : 'Draft saved. You can review it on your dashboard.';
+        $redirectRoute = $request->input('redirect_to');
+
+        if ($redirectRoute && Route::has($redirectRoute)) {
+            return redirect()->route($redirectRoute)
+                ->with('status', $statusMessage);
+        }
+
         return redirect()->route('dashboard.projects.index')
-            ->with('status', 'Project created.');
+            ->with('status', $statusMessage);
     }
 
     public function edit(Project $project, Request $request)

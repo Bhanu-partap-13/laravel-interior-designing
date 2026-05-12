@@ -14,6 +14,10 @@
         <div class="actions">
             <a class="btn btn-primary" href="{{ route('dashboard.projects.index') }}">{{ __('app.dashboard.index.manage_projects') }}</a>
             <a class="btn btn-ghost" href="{{ route('dashboard.inquiries.index') }}">{{ __('app.dashboard.index.view_inquiries') }}</a>
+            <form method="post" action="{{ route('auth.logout') }}">
+                @csrf
+                <button class="btn btn-ghost" type="submit">{{ __('app.nav.logout') }}</button>
+            </form>
         </div>
         <div class="card-grid">
             <div class="card">
