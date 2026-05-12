@@ -10,6 +10,9 @@ class DashboardController extends Controller
     public function index(Request $request)
     {
         $designer = $request->user()->designer;
+        $projects = $designer
+            ? $designer->projects()->with('category')->latest()->take(3)->get()
+            : collect();
 
         $publishedCount = $designer
             ? $designer->projects()->where('is_published', true)->count()
@@ -35,6 +38,6 @@ class DashboardController extends Controller
             'profile' => $profileScore,
         ];
 
-        return view('dashboard.index', compact('metrics', 'designer'));
+        return view('dashboard.index', compact('metrics', 'designer', 'projects'));
     }
 }
