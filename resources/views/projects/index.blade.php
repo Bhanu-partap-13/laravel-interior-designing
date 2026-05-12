@@ -8,6 +8,16 @@
         <p class="eyebrow">{{ __('app.projects.index.eyebrow') }}</p>
         <h1>{{ __('app.projects.index.title') }}</h1>
         <p class="lead">{{ __('app.projects.index.lead') }}</p>
+        @php
+            $designer = auth()->user()?->designer;
+        @endphp
+        @if ($designer)
+            <div class="projects-actions">
+                <button class="btn btn-emphasis" type="button" data-modal-open="project-modal">
+                    Create project
+                </button>
+            </div>
+        @endif
         <form class="filter-row" method="get" action="{{ route('projects.index') }}">
             @if (request('category'))
                 <input type="hidden" name="category" value="{{ request('category') }}">
@@ -61,4 +71,82 @@
         @endif
     </div>
 </section>
+@if ($designer)
+    <div class="modal" id="project-modal" aria-hidden="true">
+        <div class="modal-backdrop" data-modal-close></div>
+        <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
+            <div class="modal-head">
+                <div>
+                    <p class="eyebrow">New project</p>
+                    <h2 id="project-modal-title">Create a draft</h2>
+                    <p class="lead">Finish the last step to save a draft to your dashboard.</p>
+                </div>
+                <button class="modal-close" type="button" aria-label="Close" data-modal-close>&times;</button>
+            </div>
+            <form class="modal-form" method="post" action="{{ route('dashboard.projects.store') }}" enctype="multipart/form-data">
+                @csrf
+                <input type="hidden" name="is_published" value="0">
+                <input type="hidden" name="redirect_to" value="dashboard.index">
+                <div class="modal-steps">
+                    <div class="modal-step is-active" data-step="1">
+                        <label class="field">
+                            <span>Title</span>
+                            <input type="text" name="title" value="{{ old('title') }}" placeholder="Project title" required>
+                        </label>
+                        <label class="field">
+                            <span>Category</span>
+                            <select name="category_id" required>
+                                <option value="" disabled selected>Select a category</option>
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
+                            </select>
+                        </label>
+                        <label class="field">
+                            <span>Description</span>
+                            <textarea name="description" placeholder="Describe the project.">{{ old('description') }}</textarea>
+                        </label>
+                    </div>
+                    <div class="modal-step" data-step="2">
+                        <label class="field">
+                            <span>Budget range</span>
+                            <input type="text" name="budget_range" value="{{ old('budget_range') }}" placeholder="Low, Mid, High">
+                        </label>
+                        <label class="field">
+                            <span>Duration (days)</span>
+                            <input type="number" name="duration_days" value="{{ old('duration_days') }}" min="1" placeholder="45">
+                        </label>
+                        <label class="field">
+                            <span>Style tags</span>
+                            <input type="text" name="style_tags" value="{{ old('style_tags') }}" placeholder="minimal, warm, coastal">
+                        </label>
+                    </div>
+                    <div class="modal-step" data-step="3">
+                        <label class="field">
+                            <span>Before image</span>
+                            <input type="file" name="before_image" accept="image/*">
+                        </label>
+                        <label class="field">
+                            <span>After image</span>
+                            <input type="file" name="after_image" accept="image/*">
+                        </label>
+                        <label class="field">
+                            <span>Project media</span>
+                            <input type="file" name="media[]" accept="image/*,video/*" multiple>
+                        </label>
+                        <label class="field">
+                            <span>Invoice proof (optional)</span>
+                            <input type="file" name="invoice_proof" accept="application/pdf,image/*">
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn btn-ghost" type="button" data-step-prev>Back</button>
+                    <button class="btn btn-ghost" type="button" data-step-next>Next</button>
+                    <button class="btn btn-emphasis" type="submit" data-step-submit>Save draft</button>
+                </div>
+            </form>
+        </div>
+    </div>
+@endif
 @endsection
