@@ -7,6 +7,7 @@
         <nav class="nav-links">
             <a href="{{ route('home') }}">{{ __('app.nav.home') }}</a>
             <a href="{{ route('projects.index') }}">{{ __('app.nav.projects') }}</a>
+            <a href="{{ route('contact') }}">{{ __('app.nav.contact') }}</a>
             <a href="{{ route('dashboard.index') }}">{{ __('app.nav.dashboard') }}</a>
         </nav>
         <div class="nav-actions">
