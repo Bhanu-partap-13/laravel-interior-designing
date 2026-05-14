@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Dashboard\InquiryController as DashboardInquiryController;
 use App\Http\Controllers\Dashboard\ProjectController as DashboardProjectController;
@@ -13,6 +14,8 @@ use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'home.index')->name('home');
+Route::view('/contact', 'home.contact')->name('contact');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
 Route::get('/login', [LoginController::class, 'showForm'])->name('login');
 Route::get('/register', [RegisterController::class, 'showForm'])->name('register');
