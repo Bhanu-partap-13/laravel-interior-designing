@@ -59,7 +59,7 @@ $videoExtensions = ['mp4', 'webm', 'mov'];
         <article class="card">
             <img
                 class="card-image"
-                src="{{ $project->before_image ? asset('storage/' . $project->before_image) : 'https://source.unsplash.com/900x700/?interior,before&sig=' . $project->id }}"
+                src="{{ $project->before_image ? asset('storage/' . $project->before_image) : 'https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=900&q=80' }}"
                 alt="{{ __('app.projects.show.before') }}"
             >
             <p>{{ __('app.projects.show.gallery_before_text') }}</p>
@@ -67,7 +67,7 @@ $videoExtensions = ['mp4', 'webm', 'mov'];
         <article class="card">
             <img
                 class="card-image"
-                src="{{ $project->after_image ? asset('storage/' . $project->after_image) : 'https://source.unsplash.com/900x700/?interior,after&sig=' . ($project->id + 50) }}"
+                src="{{ $project->after_image ? asset('storage/' . $project->after_image) : 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80' }}"
                 alt="{{ __('app.projects.show.after') }}"
             >
             <p>{{ __('app.projects.show.gallery_after_text') }}</p>
@@ -91,7 +91,7 @@ $videoExtensions = ['mp4', 'webm', 'mov'];
             <article class="card">
                 <img
                     class="card-image"
-                    src="https://source.unsplash.com/900x700/?interior,detail&sig={{ $project->id + 100 }}"
+                    src="https://images.unsplash.com/photo-1501045661006-fcebe0257c3f?auto=format&fit=crop&w=900&q=80"
                     alt="{{ __('app.projects.show.detail') }}"
                 >
                 <p>{{ __('app.projects.show.gallery_detail_text') }}</p>
@@ -122,7 +122,7 @@ $videoExtensions = ['mp4', 'webm', 'mov'];
                     </div>
                     <img
                         class="card-image"
-                        src="{{ $relatedProject->after_image ? asset('storage/' . $relatedProject->after_image) : 'https://source.unsplash.com/800x600/?interior,room&sig=' . $relatedProject->id }}"
+                        src="{{ $relatedProject->after_image ? asset('storage/' . $relatedProject->after_image) : 'https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=800&q=80' }}"
                         alt="{{ $relatedProject->title }}"
                     >
                     <h3>{{ $relatedProject->title }}</h3>

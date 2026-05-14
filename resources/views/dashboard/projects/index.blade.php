@@ -36,7 +36,7 @@
                             <span>{{ __('app.dashboard.projects.budget_label') }}: {{ $project->budget_range ?? __('app.projects.show.details_budget_fallback') }}</span>
                             <div class="actions">
                                 <a class="text-link" href="{{ route('dashboard.projects.edit', $project) }}">{{ __('app.dashboard.projects.edit') }}</a>
-                                <form method="post" action="{{ route('dashboard.projects.destroy', $project) }}">
+                                <form method="post" action="{{ route('dashboard.projects.destroy', $project) }}" onsubmit="return prompt('Please type \'Delete\' to confirm deletion:') === 'Delete';">
                                     @csrf
                                     @method('delete')
                                     <button class="text-link" type="submit">{{ __('app.dashboard.projects.delete') }}</button>

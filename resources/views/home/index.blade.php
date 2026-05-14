@@ -15,15 +15,15 @@
             </div>
             <div class="stat-grid">
                 <div class="stat">
-                    <span class="stat-value">120+</span>
-                    <span class="stat-label">{{ __('app.home.stats.studios') }}</span>
+                    <span class="stat-value">{{ $clientCount ?? 0 }}</span>
+                    <span class="stat-label">Clients</span>
                 </div>
                 <div class="stat">
-                    <span class="stat-value">540</span>
+                    <span class="stat-value">{{ $projectCount ?? 0 }}</span>
                     <span class="stat-label">{{ __('app.home.stats.projects') }}</span>
                 </div>
                 <div class="stat">
-                    <span class="stat-value">36</span>
+                    <span class="stat-value">{{ $cityCount ?? 0 }}</span>
                     <span class="stat-label">{{ __('app.home.stats.cities') }}</span>
                 </div>
             </div>
@@ -52,57 +52,29 @@
         <p class="section-lead">{{ __('app.home.featured.lead') }}</p>
     </div>
     <div class="container card-grid">
-        <article class="card">
-            <div class="card-top">
-                <span class="chip">{{ __('app.home.featured_cards.sunlit.category') }}</span>
-                <span class="card-meta">{{ __('app.home.featured_cards.sunlit.city') }}</span>
-            </div>
-            <img
-                class="card-image"
-                src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=900&q=80"
-                alt="{{ __('app.home.featured_cards.sunlit.title') }}"
-            >
-            <h3>{{ __('app.home.featured_cards.sunlit.title') }}</h3>
-            <p>{{ __('app.home.featured_cards.sunlit.text') }}</p>
-            <div class="card-bottom">
-                <span>{{ __('app.home.featured_cards.sunlit.budget') }}</span>
-                <span>{{ __('app.home.featured_cards.sunlit.duration') }}</span>
-            </div>
-        </article>
-        <article class="card">
-            <div class="card-top">
-                <span class="chip">{{ __('app.home.featured_cards.coastal.category') }}</span>
-                <span class="card-meta">{{ __('app.home.featured_cards.coastal.city') }}</span>
-            </div>
-            <img
-                class="card-image"
-                src="https://images.unsplash.com/photo-1501045661006-fcebe0257c3f?auto=format&fit=crop&w=900&q=80"
-                alt="{{ __('app.home.featured_cards.coastal.title') }}"
-            >
-            <h3>{{ __('app.home.featured_cards.coastal.title') }}</h3>
-            <p>{{ __('app.home.featured_cards.coastal.text') }}</p>
-            <div class="card-bottom">
-                <span>{{ __('app.home.featured_cards.coastal.budget') }}</span>
-                <span>{{ __('app.home.featured_cards.coastal.duration') }}</span>
-            </div>
-        </article>
-        <article class="card">
-            <div class="card-top">
-                <span class="chip">{{ __('app.home.featured_cards.heritage.category') }}</span>
-                <span class="card-meta">{{ __('app.home.featured_cards.heritage.city') }}</span>
-            </div>
-            <img
-                class="card-image"
-                src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80"
-                alt="{{ __('app.home.featured_cards.heritage.title') }}"
-            >
-            <h3>{{ __('app.home.featured_cards.heritage.title') }}</h3>
-            <p>{{ __('app.home.featured_cards.heritage.text') }}</p>
-            <div class="card-bottom">
-                <span>{{ __('app.home.featured_cards.heritage.budget') }}</span>
-                <span>{{ __('app.home.featured_cards.heritage.duration') }}</span>
-            </div>
-        </article>
+        @if(isset($featuredProjects) && $featuredProjects->count() > 0)
+            @foreach($featuredProjects as $project)
+            <article class="card">
+                <div class="card-top">
+                    <span class="chip">{{ $project->category?->name ?? 'Interior' }}</span>
+                    <span class="card-meta">{{ $project->designer?->city ?? 'Remote' }}</span>
+                </div>
+                <img
+                    class="card-image"
+                    src="{{ $project->after_image ? asset('storage/' . $project->after_image) : 'https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=900&q=80' }}"
+                    alt="{{ $project->title }}"
+                >
+                <h3>{{ $project->title }}</h3>
+                <p>{{ Str::limit($project->description, 80) }}</p>
+                <div class="card-bottom">
+                    <span>Budget: {{ $project->budget_range ?? 'Variable' }}</span>
+                    <a class="text-link" href="{{ route('projects.show', $project->slug) }}" style="font-weight: 500; text-decoration: underline;">View project</a>
+                </div>
+            </article>
+            @endforeach
+        @else
+            <p>No projects featured yet.</p>
+        @endif
     </div>
 </section>
 

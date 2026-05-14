@@ -112,57 +112,5 @@ class DatabaseSeeder extends Seeder
             'is_verified' => true,
         ]);
 
-        $livingRoom = Category::where('slug', 'living-room')->first();
-        $kitchen = Category::where('slug', 'kitchen')->first();
-        $bedroom = Category::where('slug', 'bedroom')->first();
-        $office = Category::where('slug', 'office')->first();
-
-        Project::create([
-            'designer_id' => $primaryDesigner->id,
-            'category_id' => $livingRoom->id,
-            'title' => 'Sunlit loft for a writer',
-            'slug' => 'sunlit-loft-for-a-writer',
-            'description' => 'Muted textures, paper lantern light, and bespoke shelving.',
-            'budget_range' => 'Mid',
-            'duration_days' => 56,
-            'style_tags' => ['minimal', 'warm'],
-            'is_published' => true,
-        ]);
-
-        Project::create([
-            'designer_id' => $primaryDesigner->id,
-            'category_id' => $bedroom->id,
-            'title' => 'Soft minimal townhouse',
-            'slug' => 'soft-minimal-townhouse',
-            'description' => 'Soft layers of linen, oak, and matte plaster.',
-            'budget_range' => 'Mid',
-            'duration_days' => 70,
-            'style_tags' => ['soft', 'minimal'],
-            'is_published' => true,
-        ]);
-
-        Project::create([
-            'designer_id' => $secondaryDesigner->id,
-            'category_id' => $kitchen->id,
-            'title' => 'Coastal kitchen reset',
-            'slug' => 'coastal-kitchen-reset',
-            'description' => 'Salt washed oak and stone surfaces for communal cooking.',
-            'budget_range' => 'High',
-            'duration_days' => 84,
-            'style_tags' => ['coastal', 'warm'],
-            'is_published' => true,
-        ]);
-
-        Project::create([
-            'designer_id' => $secondaryDesigner->id,
-            'category_id' => $office->id,
-            'title' => 'Studio with garden light',
-            'slug' => 'studio-with-garden-light',
-            'description' => 'Gallery lighting and adaptable work zones for hybrid teams.',
-            'budget_range' => 'Mid',
-            'duration_days' => 42,
-            'style_tags' => ['studio', 'light'],
-            'is_published' => true,
-        ]);
     }
 }
