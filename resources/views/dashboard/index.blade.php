@@ -18,6 +18,7 @@
             </form>
             <div class="dashboard-actions">
                 <a class="btn btn-primary" href="{{ route('dashboard.projects.index') }}">{{ __('app.dashboard.index.manage_projects') }}</a>
+                <a class="btn btn-ghost" href="{{ route('dashboard.projects.create') }}">{{ __('app.dashboard.projects.new_project') }}</a>
                 <a class="btn btn-ghost" href="{{ route('dashboard.inquiries.index') }}">{{ __('app.dashboard.index.view_inquiries') }}</a>
             </div>
         </div>

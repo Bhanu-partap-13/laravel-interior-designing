@@ -156,6 +156,72 @@
     </div>
 </section>
 
+<section class="section alt">
+    <div class="container contact-callout-inner">
+        <div>
+            <p class="eyebrow">{{ __('app.home.contact.eyebrow') }}</p>
+            <h2>{{ __('app.home.contact.title') }}</h2>
+            <p class="section-lead">{{ __('app.home.contact.lead') }}</p>
+            <div class="actions">
+                <a class="btn btn-primary" href="{{ route('contact') }}">{{ __('app.home.contact.primary') }}</a>
+                <a class="btn btn-ghost" href="{{ route('designers.index') }}">{{ __('app.home.contact.secondary') }}</a>
+            </div>
+        </div>
+        <div class="contact-card-grid">
+            <div class="contact-card">
+                <span class="chip">{{ __('app.home.contact.cards.email.label') }}</span>
+                <p>{{ __('app.home.contact.cards.email.value') }}</p>
+                <a class="text-link" href="mailto:{{ __('app.home.contact.cards.email.value') }}">{{ __('app.home.contact.cards.email.action') }}</a>
+            </div>
+            <div class="contact-card">
+                <span class="chip">{{ __('app.home.contact.cards.phone.label') }}</span>
+                <p>{{ __('app.home.contact.cards.phone.value') }}</p>
+                <a class="text-link" href="tel:{{ __('app.home.contact.cards.phone.value') }}">{{ __('app.home.contact.cards.phone.action') }}</a>
+            </div>
+            <div class="contact-card">
+                <span class="chip">{{ __('app.home.contact.cards.location.label') }}</span>
+                <p>{{ __('app.home.contact.cards.location.value') }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container section-head">
+        <div>
+            <p class="eyebrow">{{ __('app.home.faq.eyebrow') }}</p>
+            <h2>{{ __('app.home.faq.title') }}</h2>
+        </div>
+        <p class="section-lead">{{ __('app.home.faq.lead') }}</p>
+    </div>
+    <div class="container faq-grid">
+        <details class="faq-item">
+            <summary class="faq-question">{{ __('app.home.faq.items.one.question') }}</summary>
+            <p class="faq-answer">{{ __('app.home.faq.items.one.answer') }}</p>
+        </details>
+        <details class="faq-item">
+            <summary class="faq-question">{{ __('app.home.faq.items.two.question') }}</summary>
+            <p class="faq-answer">{{ __('app.home.faq.items.two.answer') }}</p>
+        </details>
+        <details class="faq-item">
+            <summary class="faq-question">{{ __('app.home.faq.items.three.question') }}</summary>
+            <p class="faq-answer">{{ __('app.home.faq.items.three.answer') }}</p>
+        </details>
+        <details class="faq-item">
+            <summary class="faq-question">{{ __('app.home.faq.items.four.question') }}</summary>
+            <p class="faq-answer">{{ __('app.home.faq.items.four.answer') }}</p>
+        </details>
+        <details class="faq-item">
+            <summary class="faq-question">{{ __('app.home.faq.items.five.question') }}</summary>
+            <p class="faq-answer">{{ __('app.home.faq.items.five.answer') }}</p>
+        </details>
+        <details class="faq-item">
+            <summary class="faq-question">{{ __('app.home.faq.items.six.question') }}</summary>
+            <p class="faq-answer">{{ __('app.home.faq.items.six.answer') }}</p>
+        </details>
+    </div>
+</section>
+
 <section class="section cta">
     <div class="container cta-inner">
         <div>
