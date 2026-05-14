@@ -1,14 +1,20 @@
 <header class="site-header">
     <div class="container nav-bar">
         <a class="logo" href="{{ route('home') }}">
-            <span class="logo-mark"></span>
+            <img class="logo-mark" src="{{ asset('logoo.svg') }}" alt="{{ __('app.footer.brand_title') }}">
             <span class="logo-text">{{ __('app.footer.brand_title') }}</span>
         </a>
         <nav class="nav-links">
             <a href="{{ route('home') }}">{{ __('app.nav.home') }}</a>
             <a href="{{ route('projects.index') }}">{{ __('app.nav.projects') }}</a>
             <a href="{{ route('contact') }}">{{ __('app.nav.contact') }}</a>
-            <a href="{{ route('dashboard.index') }}">{{ __('app.nav.dashboard') }}</a>
+            @auth
+                <a href="{{ auth()->user()->isDesigner() ? route('dashboard.index') : route('client.dashboard') }}">
+                    {{ __('app.nav.dashboard') }}
+                </a>
+            @else
+                <a href="{{ route('auth.login') }}">{{ __('app.nav.dashboard') }}</a>
+            @endauth
         </nav>
         <div class="nav-actions">
             @php
@@ -20,6 +26,10 @@
                 <a class="btn btn-primary" href="{{ route('auth.register') }}">{{ __('app.nav.register') }}</a>
             @else
                 <span class="chip">{{ auth()->user()->name }}</span>
+                <form method="post" action="{{ route('auth.logout') }}">
+                    @csrf
+                    <button class="btn btn-ghost" type="submit">{{ __('app.nav.logout') }}</button>
+                </form>
             @endguest
             <button
                 class="btn btn-ghost theme-toggle"

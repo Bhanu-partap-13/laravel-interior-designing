@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ClientDashboardController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Dashboard\InquiryController as DashboardInquiryController;
@@ -56,4 +57,9 @@ Route::middleware(['auth', 'designer'])->prefix('dashboard')->name('dashboard.')
     Route::resource('projects', DashboardProjectController::class)->except(['show']);
     Route::get('/inquiries', [DashboardInquiryController::class, 'index'])->name('inquiries.index');
     Route::patch('/inquiries/{inquiry}', [DashboardInquiryController::class, 'update'])->name('inquiries.update');
+});
+
+Route::middleware(['auth', 'client'])->prefix('client')->name('client.')->group(function () {
+    Route::get('/dashboard', [ClientDashboardController::class, 'index'])->name('dashboard');
+    Route::put('/profile', [ClientDashboardController::class, 'update'])->name('profile.update');
 });

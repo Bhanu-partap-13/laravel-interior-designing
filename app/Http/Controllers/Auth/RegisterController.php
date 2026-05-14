@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RegisterRequest;
-use App\Models\ClientProfile;
 use App\Models\Designer;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
@@ -28,6 +27,7 @@ class RegisterController extends Controller
             $user = User::create([
                 'name' => $data['name'],
                 'email' => $data['email'],
+                'phone' => $data['phone'],
                 'password' => Hash::make($data['password']),
                 'role' => $data['role'],
             ]);
@@ -39,19 +39,6 @@ class RegisterController extends Controller
                     'specialization' => null,
                     'years_experience' => 0,
                     'is_verified' => false,
-                ]);
-            }
-
-            if ($data['role'] === 'client') {
-                ClientProfile::create([
-                    'user_id' => $user->id,
-                    'design_type' => $data['design_type'],
-                    'budget_range' => $data['budget_range'],
-                    'location' => $data['location'],
-                    'timeline' => $data['timeline'],
-                    'property_size' => $data['property_size'],
-                    'style_preference' => $data['style_preference'],
-                    'notes' => $data['notes'] ?? null,
                 ]);
             }
 

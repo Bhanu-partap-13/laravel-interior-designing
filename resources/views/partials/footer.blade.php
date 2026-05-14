@@ -1,6 +1,7 @@
 <footer class="site-footer">
     <div class="container footer-grid">
         <div class="footer-brand">
+            <img class="footer-logo" src="{{ asset('logoo.svg') }}" alt="{{ __('app.footer.brand_title') }}">
             <h4>{{ __('app.footer.brand_title') }}</h4>
             <p>{{ __('app.footer.brand_text') }}</p>
         </div>

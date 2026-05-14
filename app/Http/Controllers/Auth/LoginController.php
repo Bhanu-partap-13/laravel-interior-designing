@@ -29,8 +29,12 @@ class LoginController extends Controller
         }
 
         $request->session()->regenerate();
+        $user = $request->user();
+        $defaultRedirect = $user && $user->isDesigner()
+            ? route('dashboard.index')
+            : route('client.dashboard');
 
-        return redirect()->intended(route('dashboard.index'))
+        return redirect()->intended($defaultRedirect)
             ->with('status', 'Welcome back.');
     }
 
