@@ -30,6 +30,13 @@ $styleTags = old('style_tags', isset($project) && $project->style_tags ? implode
     @enderror
 </label>
 <label class="field">
+    <span>{{ __('app.dashboard.projects.form.company_name') ?? 'Company name' }}</span>
+    <input type="text" name="company_name" value="{{ old('company_name', $project->company_name ?? '') }}" placeholder="Company name for this project">
+    @error('company_name')
+        <span class="form-error">{{ $message }}</span>
+    @enderror
+</label>
+<label class="field">
     <span>{{ __('app.dashboard.projects.form.budget') }}</span>
     <input type="text" name="budget_range" value="{{ old('budget_range', $project->budget_range ?? '') }}" placeholder="{{ __('app.dashboard.projects.form.budget_placeholder') }}">
     @error('budget_range')
@@ -51,6 +58,24 @@ $styleTags = old('style_tags', isset($project) && $project->style_tags ? implode
     @enderror
 </label>
 <label class="field">
+    <span>{{ __('app.dashboard.projects.form.payment_status') ?? 'Payment status' }}</span>
+    <select name="payment_status">
+        <option value="" @selected(!old('payment_status', $project->payment_status ?? ''))>Select payment status</option>
+        <option value="paid" @selected(old('payment_status', $project->payment_status ?? '') === 'paid')>Paid</option>
+        <option value="free" @selected(old('payment_status', $project->payment_status ?? '') === 'free')>Free</option>
+    </select>
+    @error('payment_status')
+        <span class="form-error">{{ $message }}</span>
+    @enderror
+</label>
+<label class="field">
+    <span>{{ __('app.dashboard.projects.form.amount_paid') ?? 'Amount paid' }}</span>
+    <input type="number" name="amount_paid" value="{{ old('amount_paid', $project->amount_paid ?? '') }}" min="0" step="0.01" placeholder="0.00">
+    @error('amount_paid')
+        <span class="form-error">{{ $message }}</span>
+    @enderror
+</label>
+<label class="field">
     <span>{{ __('app.dashboard.projects.form.before') }}</span>
     <input type="file" name="before_image" accept="image/*">
     @error('before_image')
@@ -61,6 +86,13 @@ $styleTags = old('style_tags', isset($project) && $project->style_tags ? implode
     <span>{{ __('app.dashboard.projects.form.after') }}</span>
     <input type="file" name="after_image" accept="image/*">
     @error('after_image')
+        <span class="form-error">{{ $message }}</span>
+    @enderror
+</label>
+<label class="field">
+    <span>{{ __('app.dashboard.projects.form.video') ?? 'Video' }}</span>
+    <input type="file" name="video" accept="video/*">
+    @error('video')
         <span class="form-error">{{ $message }}</span>
     @enderror
 </label>

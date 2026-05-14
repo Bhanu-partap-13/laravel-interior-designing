@@ -10,6 +10,9 @@
             <p class="eyebrow">{{ __('app.auth.register.eyebrow') }}</p>
             <h1>{{ __('app.auth.register.heading') }}</h1>
             <p class="lead">{{ __('app.auth.register.lead') }}</p>
+            <div class="thank-you-message">
+                <p>Thank you for choosing to join our community! We're excited to have you here.</p>
+            </div>
             @if (session('status'))
                 <div class="status-banner">{{ session('status') }}</div>
             @endif

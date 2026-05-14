@@ -24,6 +24,10 @@ class Project extends Model
         'style_tags',
         'is_published',
         'views_count',
+        'company_name',
+        'video',
+        'payment_status',
+        'amount_paid',
     ];
 
     protected $casts = [
@@ -32,6 +36,7 @@ class Project extends Model
         'is_published' => 'boolean',
         'duration_days' => 'integer',
         'views_count' => 'integer',
+        'amount_paid' => 'decimal:2',
     ];
 
     public function designer()

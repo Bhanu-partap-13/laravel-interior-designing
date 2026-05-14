@@ -60,9 +60,12 @@ class ProjectController extends Controller
             'title' => $data['title'],
             'slug' => $slug,
             'description' => $data['description'] ?? null,
+            'company_name' => $data['company_name'] ?? null,
             'budget_range' => $data['budget_range'] ?? null,
             'duration_days' => $data['duration_days'] ?? null,
             'style_tags' => $this->parseTags($data['style_tags'] ?? ''),
+            'payment_status' => $data['payment_status'] ?? null,
+            'amount_paid' => $data['amount_paid'] ?? null,
             'is_published' => (bool) ($data['is_published'] ?? false),
         ]);
 
@@ -72,6 +75,10 @@ class ProjectController extends Controller
 
         if ($request->hasFile('after_image')) {
             $project->after_image = $request->file('after_image')->store('projects', 'public');
+        }
+
+        if ($request->hasFile('video')) {
+            $project->video = $request->file('video')->store('projects/videos', 'public');
         }
 
         if ($request->hasFile('invoice_proof')) {
@@ -122,9 +129,12 @@ class ProjectController extends Controller
             'category_id' => $data['category_id'],
             'title' => $data['title'],
             'description' => $data['description'] ?? null,
+            'company_name' => $data['company_name'] ?? null,
             'budget_range' => $data['budget_range'] ?? null,
             'duration_days' => $data['duration_days'] ?? null,
             'style_tags' => $this->parseTags($data['style_tags'] ?? ''),
+            'payment_status' => $data['payment_status'] ?? null,
+            'amount_paid' => $data['amount_paid'] ?? null,
             'is_published' => (bool) ($data['is_published'] ?? false),
         ]);
 
@@ -136,6 +146,11 @@ class ProjectController extends Controller
         if ($request->hasFile('after_image')) {
             $this->deleteFile($project->after_image);
             $project->after_image = $request->file('after_image')->store('projects', 'public');
+        }
+
+        if ($request->hasFile('video')) {
+            $this->deleteFile($project->video);
+            $project->video = $request->file('video')->store('projects/videos', 'public');
         }
 
         if ($request->hasFile('invoice_proof')) {
@@ -161,6 +176,7 @@ class ProjectController extends Controller
 
         $this->deleteFile($project->before_image);
         $this->deleteFile($project->after_image);
+        $this->deleteFile($project->video);
         $this->deleteFile($project->invoice_proof);
         $this->deleteGallery($project->gallery);
 

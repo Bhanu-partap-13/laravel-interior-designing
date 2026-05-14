@@ -109,6 +109,10 @@
                     </div>
                     <div class="modal-step" data-step="2">
                         <label class="field">
+                            <span>Company name</span>
+                            <input type="text" name="company_name" value="{{ old('company_name') }}" placeholder="Company name for this project">
+                        </label>
+                        <label class="field">
                             <span>Budget range</span>
                             <input type="text" name="budget_range" value="{{ old('budget_range') }}" placeholder="Low, Mid, High">
                         </label>
@@ -122,6 +126,24 @@
                         </label>
                     </div>
                     <div class="modal-step" data-step="3">
+                        <label class="field">
+                            <span>Payment status</span>
+                            <select name="payment_status">
+                                <option value="" disabled selected>Select payment status</option>
+                                <option value="paid" @selected(old('payment_status') === 'paid')>Paid</option>
+                                <option value="free" @selected(old('payment_status') === 'free')>Free</option>
+                            </select>
+                        </label>
+                        <label class="field">
+                            <span>Amount paid</span>
+                            <input type="number" name="amount_paid" value="{{ old('amount_paid') }}" min="0" step="0.01" placeholder="0.00">
+                        </label>
+                    </div>
+                    <div class="modal-step" data-step="4">
+                        <label class="field">
+                            <span>Video</span>
+                            <input type="file" name="video" accept="video/*">
+                        </label>
                         <label class="field">
                             <span>Before image</span>
                             <input type="file" name="before_image" accept="image/*">

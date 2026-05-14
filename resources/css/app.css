@@ -877,6 +877,16 @@ body.modal-open {
 	font-size: 0.9rem;
 }
 
+.thank-you-message {
+	margin-top: 1.5rem;
+	padding: 0.8rem 1rem;
+	border-radius: var(--radius-sm);
+	border: 1px solid var(--line);
+	background: var(--surface);
+	color: var(--text);
+	font-size: 0.9rem;
+}
+
 .field {
 	display: grid;
 	gap: 0.5rem;

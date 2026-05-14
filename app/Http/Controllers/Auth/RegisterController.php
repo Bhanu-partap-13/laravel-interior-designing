@@ -58,15 +58,8 @@ class RegisterController extends Controller
             return $user;
         });
 
-        Auth::login($user);
-
-        if ($user->isDesigner()) {
-            return redirect()->route('dashboard.profile.edit')
-                ->with('status', __('app.dashboard.profile.complete_required'));
-        }
-
-        return redirect()->route('projects.index')
-            ->with('status', __('app.auth.register.client_success'));
+        return redirect()->route('auth.login')
+            ->with('status', __('app.auth.register.success'));
     }
 
     private function uniqueSlug(string $name): string
