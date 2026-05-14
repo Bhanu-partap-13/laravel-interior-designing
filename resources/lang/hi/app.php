@@ -35,7 +35,7 @@ return [
         'hero' => [
             'eyebrow' => 'पोर्टफोलियो प्लेटफॉर्म',
             'title' => 'जहां डिज़ाइनर स्थान के माध्यम से कहानियां बताते हैं।',
-            'lead' => 'Ram Interior इंटीरियर डिज़ाइनर और क्लायंट के लिए एक क्यूरेट किया गया प्लेटफॉर्म है। पोर्टफोलियो एक्सप्लोर करें, शैलियों का पालन करें, और एक ही जगह परामर्श का अनुरोध करें।',
+            'lead' => 'Yadav Interior इंटीरियर डिज़ाइनर और क्लायंट के लिए एक क्यूरेट किया गया प्लेटफॉर्म है। पोर्टफोलियो एक्सप्लोर करें, शैलियों का पालन करें, और एक ही जगह परामर्श का अनुरोध करें।',
             'primary' => 'परियोजनाएं एक्सप्लोर करें',
             'secondary' => 'डिज़ाइनर से मिलें',
             'featured_label' => 'फ़ीचर: सनलिट लॉफ्ट',
@@ -116,13 +116,13 @@ return [
         'cta' => [
             'eyebrow' => 'शुरू करने के लिए तैयार',
             'title' => 'एक प्रोफाइल बनाएं और अपना पोर्टफोलियो साझा करें।',
-            'lead' => 'Ram Interior पर डिज़ाइनर के रूप में शामिल हों और केस स्टडीज प्रकाशित करें और क्लायंट अनुरोध प्राप्त करें।',
+            'lead' => 'Yadav Interior पर डिज़ाइनर के रूप में शामिल हों और केस स्टडीज प्रकाशित करें और क्लायंट अनुरोध प्राप्त करें।',
             'primary' => 'डिज़ाइनर खाता बनाएं',
             'secondary' => 'सभी परियोजनाएं देखें',
         ],
         'contact' => [
             'eyebrow' => 'Contact',
-            'title' => 'Talk with the Ram Interior team.',
+            'title' => 'Talk with the Yadav Interior team.',
             'lead' => 'Need help choosing a designer or planning a project? Share your timeline and we will guide you.',
             'primary' => 'Contact us',
             'secondary' => 'Browse designers',
@@ -146,7 +146,7 @@ return [
         'faq' => [
             'eyebrow' => 'FAQ',
             'title' => 'Frequently asked questions',
-            'lead' => 'Quick answers for designers and clients using Ram Interior.',
+            'lead' => 'Quick answers for designers and clients using Yadav Interior.',
             'items' => [
                 'one' => [
                     'question' => 'How are designers curated?',
@@ -209,7 +209,7 @@ return [
     'designers' => [
         'index' => [
             'eyebrow' => 'डिज़ाइनर',
-            'title' => 'Ram Interior को आकार देने वाले स्टूडियो से मिलें।',
+            'title' => 'Yadav Interior को आकार देने वाले स्टूडियो से मिलें।',
             'lead' => 'विशेषज्ञता, शहर, और अनुभव के वर्षों द्वारा सत्यापित डिज़ाइनरों को ब्राउज़ करें।',
             'card_text' => 'क्यूरेट किए गए पोर्टफोलियो के साथ।',
             'all' => 'सभी',
@@ -271,7 +271,7 @@ return [
             'lead_fallback' => 'एक गर्म, बनावट कहानी दिनप्रकाश, निर्मित भंडारण, और नरम सामग्री विपरीत पर केंद्रित।',
             'request_inquiry' => 'अनुरोध अनुरोध',
             'view_designer' => 'डिज़ाइनर देखें',
-            'meta_designer_fallback' => 'Ram Interior स्टूडियो',
+            'meta_designer_fallback' => 'Yadav Interior स्टूडियो',
             'meta_category_fallback' => 'आवासीय',
             'details_title' => 'परियोजना विवरण',
             'details_category' => 'श्रेणी',
@@ -487,12 +487,12 @@ return [
         ],
     ],
     'footer' => [
-        'brand_title' => 'Ram Interior',
-        'brand_text' => 'Ram Interior में शांत, कहानी-आधारित इंटीरियर, क्यूरेटेड पोर्टफोलियो, स्पष्ट बजट, और भरोसेमंद डिजाइन खोज मिलती है।',
+        'brand_title' => 'Yadav Interior',
+        'brand_text' => 'Yadav Interior में शांत, कहानी-आधारित इंटीरियर, क्यूरेटेड पोर्टफोलियो, स्पष्ट बजट, और भरोसेमंद डिजाइन खोज मिलती है।',
         'explore' => 'एक्सप्लोर करें',
         'account' => 'खाता',
         'contact' => 'संपर्क',
-        'rights' => 'Ram Interior. सभी अधिकार सुरक्षित।',
+        'rights' => 'Yadav Interior. सभी अधिकार सुरक्षित।',
         'built' => 'INT221 MVC के लिए बनाया गया।',
     ],
     'pagination' => [

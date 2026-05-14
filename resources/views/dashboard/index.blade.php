@@ -160,7 +160,7 @@
                     <div class="profile-detail-card {{ $designer?->portfolio_url ? '' : 'is-empty' }}">
                         <span class="pdc-label">Portfolio URL</span>
                         @if($designer?->portfolio_url)
-                            <a class="pdc-value text-link" href="{{ $designer->portfolio_url }}" target="_blank">{{ $designer->portfolio_url }}</a>
+                            <a class="pdc-value" href="{{ $designer->portfolio_url }}" target="_blank" style="text-decoration: underline;">{{ $designer->portfolio_url }}</a>
                         @else
                             <p class="pdc-empty">Not filled yet</p>
                         @endif

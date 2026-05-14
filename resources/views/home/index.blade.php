@@ -15,16 +15,16 @@
             </div>
             <div class="stat-grid">
                 <div class="stat">
-                    <span class="stat-value">{{ $clientCount ?? 0 }}</span>
+                    <span class="stat-value">100+</span>
                     <span class="stat-label">Clients</span>
                 </div>
                 <div class="stat">
-                    <span class="stat-value">{{ $projectCount ?? 0 }}</span>
-                    <span class="stat-label">{{ __('app.home.stats.projects') }}</span>
+                    <span class="stat-value">200+</span>
+                    <span class="stat-label">Projects</span>
                 </div>
                 <div class="stat">
-                    <span class="stat-value">{{ $cityCount ?? 0 }}</span>
-                    <span class="stat-label">{{ __('app.home.stats.cities') }}</span>
+                    <span class="stat-value">1</span>
+                    <span class="stat-label">Cities</span>
                 </div>
             </div>
         </div>
@@ -61,7 +61,7 @@
                 </div>
                 <img
                     class="card-image"
-                    src="{{ $project->after_image ? asset('storage/' . $project->after_image) : 'https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=900&q=80' }}"
+                    src="{{ $project->after_image ? asset('storage/' . $project->after_image) : asset('placeholder.svg') }}"
                     alt="{{ $project->title }}"
                 >
                 <h3>{{ $project->title }}</h3>

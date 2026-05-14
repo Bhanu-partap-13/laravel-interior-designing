@@ -35,7 +35,7 @@ return [
         'hero' => [
             'eyebrow' => 'போர்ட்ஃபோலியோ தளம்',
             'title' => 'வடிவமைப்பாளர்கள் இடங்களை கதையாக சொல்வது இங்கே.',
-            'lead' => 'Ram Interior என்பது வடிவமைப்பாளர்களும் கிளையன்டுகளும் சந்திக்கும் குறிப்பிட்ட தளம். போர்ட்ஃபோலியோவை ஆராய்க, பாணிகளைப் பின்தொடரவும், ஒரே இடத்தில் ஆலோசனை கேட்கவும்.',
+            'lead' => 'Yadav Interior என்பது வடிவமைப்பாளர்களும் கிளையன்டுகளும் சந்திக்கும் குறிப்பிட்ட தளம். போர்ட்ஃபோலியோவை ஆராய்க, பாணிகளைப் பின்தொடரவும், ஒரே இடத்தில் ஆலோசனை கேட்கவும்.',
             'primary' => 'திட்டங்களை ஆராய்க',
             'secondary' => 'வடிவமைப்பாளர்களை சந்திக்கவும்',
             'featured_label' => 'சிறப்பு: சன்லிட் லாஃப்ட்',
@@ -116,13 +116,13 @@ return [
         'cta' => [
             'eyebrow' => 'தொடங்க தயாரிருக்கவும்',
             'title' => 'ஒரு சுயவிவரம் உருவாக்கி உங்கள் போர்ட்ஃபோலியோ பகிர்ந்து.',
-            'lead' => 'Ram Interior வடிவமைப்பாளர் உடன் சேர்ந்துகொள் முகமூடிகள் திட்டங்கள் மற்றும் பெறவும் கிளையன்ட் விசாரணைகள் பதிவு।',
+            'lead' => 'Yadav Interior வடிவமைப்பாளர் உடன் சேர்ந்துகொள் முகமூடிகள் திட்டங்கள் மற்றும் பெறவும் கிளையன்ட் விசாரணைகள் பதிவு।',
             'primary' => 'வடிவமைப்பாளர் கணக்கு உருவாக்கு',
             'secondary' => 'அனைத்து திட்டங்கள் பாருங்கள்',
         ],
         'contact' => [
             'eyebrow' => 'தொடர்பு',
-            'title' => 'Talk with the Ram Interior team.',
+            'title' => 'Talk with the Yadav Interior team.',
             'lead' => 'Need help choosing a designer or planning a project? Share your timeline and we will guide you.',
             'primary' => 'Contact us',
             'secondary' => 'Browse designers',
@@ -146,7 +146,7 @@ return [
         'faq' => [
             'eyebrow' => 'FAQ',
             'title' => 'Frequently asked questions',
-            'lead' => 'Quick answers for designers and clients using Ram Interior.',
+            'lead' => 'Quick answers for designers and clients using Yadav Interior.',
             'items' => [
                 'one' => [
                     'question' => 'How are designers curated?',
@@ -271,7 +271,7 @@ return [
             'lead_fallback' => 'ஒரு சூடான, கட உப்பு கதை பகல் ஒளி, கட-ல அஞ்சல், மற்றும் மென்மையான பொருள் மாறுபாடு கவனம்।',
             'request_inquiry' => 'விசாரணை அனுரோத',
             'view_designer' => 'வடிவமைப்பாளர் பாருங்கள்',
-            'meta_designer_fallback' => 'Ram Interior ஸ்டூடியோ',
+            'meta_designer_fallback' => 'Yadav Interior ஸ்டூடியோ',
             'meta_category_fallback' => 'குடிசை',
             'details_title' => 'திட்ட விவரங்கள்',
             'details_category' => 'வகை',
@@ -460,12 +460,12 @@ return [
         ],
     ],
     'footer' => [
-        'brand_title' => 'Ram Interior',
-        'brand_text' => 'Ram Interior அமைதியான, கதையுடன் இணைந்த உள் வடிவமைப்பை, தேர்ந்த போர்ட்ஃபோலியோவும் தெளிவான பட்ஜெட்டுகளுடனும் வழங்குகிறது.',
+        'brand_title' => 'Yadav Interior',
+        'brand_text' => 'Yadav Interior அமைதியான, கதையுடன் இணைந்த உள் வடிவமைப்பை, தேர்ந்த போர்ட்ஃபோலியோவும் தெளிவான பட்ஜெட்டுகளுடனும் வழங்குகிறது.',
         'explore' => 'ஆராய்க',
         'account' => 'கணக்கு',
         'contact' => 'संपर्क',
-        'rights' => 'Ram Interior. அனைத்து உரிமைகள் பாதுகாக்கப்பட்டவை.',
+        'rights' => 'Yadav Interior. அனைத்து உரிமைகள் பாதுகாக்கப்பட்டவை.',
         'built' => 'INT221 MVC உருவாக்க।',
     ],
     'pagination' => [

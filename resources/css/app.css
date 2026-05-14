@@ -313,8 +313,8 @@ html[data-theme="dark"] .theme-icon[data-theme="light"] {
 }
 
 .btn-primary {
-	background: var(--text);
-	color: var(--bg);
+	background: #292929;
+	color: #fff !important;
 }
 
 .btn-ghost {
@@ -465,6 +465,11 @@ html[data-theme="dark"] .theme-icon[data-theme="light"] {
 .card-bottom .actions {
 	margin-bottom: 0;
 	gap: 0.6rem;
+}
+
+.card-bottom .actions form {
+	margin: 0;
+	display: inline-block;
 }
 
 .card-meta {
@@ -1016,12 +1021,22 @@ body.modal-open {
 }
 
 .text-link {
-	text-decoration: underline;
-	background: none;
+	display: inline-block;
+	background: #292929;
+	color: #fff !important;
+	padding: 0.5rem 1.2rem;
+	border-radius: 999px;
+	text-decoration: none !important;
+	font-weight: 500;
+	font-size: 0.85rem;
 	border: none;
-	padding: 0;
-	color: inherit;
-	font: inherit;
+	cursor: pointer;
+	transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.text-link:hover {
+	opacity: 0.9;
+	transform: translateY(-1px);
 }
 
 .site-footer {

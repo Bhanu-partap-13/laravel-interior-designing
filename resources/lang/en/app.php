@@ -35,7 +35,7 @@ return [
         'hero' => [
             'eyebrow' => 'Portfolio platform',
             'title' => 'Where designers tell stories through space.',
-            'lead' => 'Ram Interior is a curated platform for interior designers and clients. Explore portfolios, follow styles, and request consultations in one place.',
+            'lead' => 'Yadav Interior is a curated platform for interior designers and clients. Explore portfolios, follow styles, and request consultations in one place.',
             'primary' => 'Explore projects',
             'secondary' => 'Meet designers',
             'featured_label' => 'Featured: Sunlit Loft',
@@ -116,13 +116,13 @@ return [
         'cta' => [
             'eyebrow' => 'Ready to begin',
             'title' => 'Build a profile and share your portfolio.',
-            'lead' => 'Join Ram Interior as a designer to publish case studies and receive client inquiries.',
+            'lead' => 'Join Yadav Interior as a designer to publish case studies and receive client inquiries.',
             'primary' => 'Create designer account',
             'secondary' => 'View all projects',
         ],
         'contact' => [
             'eyebrow' => 'Contact',
-            'title' => 'Talk with the Ram Interior team.',
+            'title' => 'Talk with the Yadav Interior team.',
             'lead' => 'Need help choosing a designer or planning a project? Share your timeline and we will guide you.',
             'primary' => 'Contact us',
             'secondary' => 'Browse designers',
@@ -146,7 +146,7 @@ return [
         'faq' => [
             'eyebrow' => 'FAQ',
             'title' => 'Frequently asked questions',
-            'lead' => 'Quick answers for designers and clients using Ram Interior.',
+            'lead' => 'Quick answers for designers and clients using Yadav Interior.',
             'items' => [
                 'one' => [
                     'question' => 'How are designers curated?',
@@ -209,7 +209,7 @@ return [
     'designers' => [
         'index' => [
             'eyebrow' => 'Designers',
-            'title' => 'Meet the studios shaping Ram Interior.',
+            'title' => 'Meet the studios shaping Yadav Interior.',
             'lead' => 'Browse verified designers by specialty, city, and years of experience.',
             'card_text' => 'with curated portfolios.',
             'all' => 'All',
@@ -271,7 +271,7 @@ return [
             'lead_fallback' => 'A warm, textural story focused on daylight, built-in storage, and soft material contrast.',
             'request_inquiry' => 'Request inquiry',
             'view_designer' => 'View designer',
-            'meta_designer_fallback' => 'Ram Interior Studio',
+            'meta_designer_fallback' => 'Yadav Interior Studio',
             'meta_category_fallback' => 'Residential',
             'details_title' => 'Project details',
             'details_category' => 'Category',
@@ -487,12 +487,12 @@ return [
         ],
     ],
     'footer' => [
-        'brand_title' => 'Ram Interior',
-        'brand_text' => 'Ram Interior crafts calm, story-led interiors with curated portfolios, clear budgets, and confident design discovery.',
+        'brand_title' => 'Yadav Interior',
+        'brand_text' => 'Yadav Interior crafts calm, story-led interiors with curated portfolios, clear budgets, and confident design discovery.',
         'explore' => 'Explore',
         'account' => 'Account',
         'contact' => 'Contact',
-        'rights' => 'Ram Interior. All rights reserved.',
+        'rights' => 'Yadav Interior. All rights reserved.',
         'built' => 'Built for INT221 MVC.',
     ],
     'pagination' => [
