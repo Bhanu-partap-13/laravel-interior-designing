@@ -31,6 +31,17 @@ if (toggle) {
 	});
 }
 
+const pageLoader = document.getElementById('page-loader');
+
+if (pageLoader) {
+	window.addEventListener('load', () => {
+		pageLoader.classList.add('is-hidden');
+		setTimeout(() => {
+			pageLoader.remove();
+		}, 500);
+	});
+}
+
 const toasts = document.querySelectorAll('[data-toast]');
 
 toasts.forEach((toast) => {
