@@ -51,60 +51,148 @@
         <p class="eyebrow">Project details</p>
         <h2>Tell us about your space</h2>
         <p class="lead">Add the details beyond your name, email, password, and mobile number.</p>
-        <form class="form-card" method="post" action="{{ route('client.profile.update') }}">
+        <form class="form-card multi-step-form" method="post" action="{{ route('client.profile.update') }}">
             @csrf
             @method('put')
-            <label class="field">
-                <span>Design type</span>
-                <input type="text" name="design_type" value="{{ old('design_type', $client?->design_type ?? '') }}" placeholder="Residential, office, retail">
-                @error('design_type')
-                    <span class="form-error">{{ $message }}</span>
-                @enderror
-            </label>
-            <label class="field">
-                <span>Budget range</span>
-                <input type="text" name="budget_range" value="{{ old('budget_range', $client?->budget_range ?? '') }}" placeholder="Low, Mid, High">
-                @error('budget_range')
-                    <span class="form-error">{{ $message }}</span>
-                @enderror
-            </label>
-            <label class="field">
-                <span>Location</span>
-                <input type="text" name="location" value="{{ old('location', $client?->location ?? '') }}" placeholder="City or area">
-                @error('location')
-                    <span class="form-error">{{ $message }}</span>
-                @enderror
-            </label>
-            <label class="field">
-                <span>Timeline</span>
-                <input type="text" name="timeline" value="{{ old('timeline', $client?->timeline ?? '') }}" placeholder="Preferred timeline">
-                @error('timeline')
-                    <span class="form-error">{{ $message }}</span>
-                @enderror
-            </label>
-            <label class="field">
-                <span>Property size</span>
-                <input type="text" name="property_size" value="{{ old('property_size', $client?->property_size ?? '') }}" placeholder="Room count or sqft">
-                @error('property_size')
-                    <span class="form-error">{{ $message }}</span>
-                @enderror
-            </label>
-            <label class="field">
-                <span>Style preference</span>
-                <input type="text" name="style_preference" value="{{ old('style_preference', $client?->style_preference ?? '') }}" placeholder="Minimal, modern, classic">
-                @error('style_preference')
-                    <span class="form-error">{{ $message }}</span>
-                @enderror
-            </label>
-            <label class="field">
-                <span>Notes</span>
-                <textarea name="notes" placeholder="Project goals and notes">{{ old('notes', $client?->notes ?? '') }}</textarea>
-                @error('notes')
-                    <span class="form-error">{{ $message }}</span>
-                @enderror
-            </label>
-            <button class="btn btn-primary" type="submit">Save details</button>
+            
+            <div class="step-indicators">
+                <div class="step-dot active" data-step="1"></div>
+                <div class="step-dot" data-step="2"></div>
+                <div class="step-dot" data-step="3"></div>
+                <div class="step-dot" data-step="4"></div>
+            </div>
+
+            <!-- Step 1: Project Overview -->
+            <div class="form-step active" data-step="1">
+                <h3>Step 1: Project Overview</h3>
+                <label class="field">
+                    <span>Design type</span>
+                    <input type="text" name="design_type" value="{{ old('design_type', $client?->design_type ?? '') }}" placeholder="Residential, office, retail">
+                    @error('design_type')
+                        <span class="form-error">{{ $message }}</span>
+                    @enderror
+                </label>
+                <label class="field">
+                    <span>Property size</span>
+                    <input type="text" name="property_size" value="{{ old('property_size', $client?->property_size ?? '') }}" placeholder="Room count or sqft">
+                    @error('property_size')
+                        <span class="form-error">{{ $message }}</span>
+                    @enderror
+                </label>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-primary next-step">Next Step</button>
+                </div>
+            </div>
+
+            <!-- Step 2: Preferences -->
+            <div class="form-step" data-step="2" style="display: none;">
+                <h3>Step 2: Preferences</h3>
+                <label class="field">
+                    <span>Style preference</span>
+                    <input type="text" name="style_preference" value="{{ old('style_preference', $client?->style_preference ?? '') }}" placeholder="Minimal, modern, classic">
+                    @error('style_preference')
+                        <span class="form-error">{{ $message }}</span>
+                    @enderror
+                </label>
+                <label class="field">
+                    <span>Budget range</span>
+                    <input type="text" name="budget_range" value="{{ old('budget_range', $client?->budget_range ?? '') }}" placeholder="Low, Mid, High">
+                    @error('budget_range')
+                        <span class="form-error">{{ $message }}</span>
+                    @enderror
+                </label>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-ghost prev-step">Previous</button>
+                    <button type="button" class="btn btn-primary next-step">Next Step</button>
+                </div>
+            </div>
+
+            <!-- Step 3: Location & Timeline -->
+            <div class="form-step" data-step="3" style="display: none;">
+                <h3>Step 3: Location & Timeline</h3>
+                <label class="field">
+                    <span>Location</span>
+                    <input type="text" name="location" value="{{ old('location', $client?->location ?? '') }}" placeholder="City or area">
+                    @error('location')
+                        <span class="form-error">{{ $message }}</span>
+                    @enderror
+                </label>
+                <label class="field">
+                    <span>Timeline</span>
+                    <input type="text" name="timeline" value="{{ old('timeline', $client?->timeline ?? '') }}" placeholder="Preferred timeline">
+                    @error('timeline')
+                        <span class="form-error">{{ $message }}</span>
+                    @enderror
+                </label>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-ghost prev-step">Previous</button>
+                    <button type="button" class="btn btn-primary next-step">Next Step</button>
+                </div>
+            </div>
+
+            <!-- Step 4: Notes -->
+            <div class="form-step" data-step="4" style="display: none;">
+                <h3>Step 4: Additional Notes</h3>
+                <label class="field">
+                    <span>Notes</span>
+                    <textarea name="notes" placeholder="Project goals and notes">{{ old('notes', $client?->notes ?? '') }}</textarea>
+                    @error('notes')
+                        <span class="form-error">{{ $message }}</span>
+                    @enderror
+                </label>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-ghost prev-step">Previous</button>
+                    <button class="btn btn-primary" type="submit">Save details</button>
+                </div>
+            </div>
         </form>
+
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const steps = document.querySelectorAll('.form-step');
+            const nextBtns = document.querySelectorAll('.next-step');
+            const prevBtns = document.querySelectorAll('.prev-step');
+            const dots = document.querySelectorAll('.step-dot');
+
+            function updateDots(index) {
+                dots.forEach((dot, i) => {
+                    if (i === index) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            }
+
+            nextBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const currentStep = btn.closest('.form-step');
+                    const nextStep = currentStep.nextElementSibling;
+                    if (nextStep && nextStep.classList.contains('form-step')) {
+                        currentStep.style.display = 'none';
+                        currentStep.classList.remove('active');
+                        nextStep.style.display = 'block';
+                        nextStep.classList.add('active');
+                        updateDots(parseInt(nextStep.dataset.step) - 1);
+                    }
+                });
+            });
+
+            prevBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const currentStep = btn.closest('.form-step');
+                    const prevStep = currentStep.previousElementSibling;
+                    if (prevStep && prevStep.classList.contains('form-step')) {
+                        currentStep.style.display = 'none';
+                        currentStep.classList.remove('active');
+                        prevStep.style.display = 'block';
+                        prevStep.classList.add('active');
+                        updateDots(parseInt(prevStep.dataset.step) - 1);
+                    }
+                });
+            });
+        });
+        </script>
     </div>
 </section>
 

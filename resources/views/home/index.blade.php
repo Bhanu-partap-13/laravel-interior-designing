@@ -106,7 +106,7 @@
     </div>
 </section>
 
-<section class="section alt">
+<section class="section categories-dark-bg">
     <div class="container section-head">
         <div>
             <p class="eyebrow">{{ __('app.home.categories.eyebrow') }}</p>
@@ -114,13 +114,57 @@
         </div>
         <p class="section-lead">{{ __('app.home.categories.lead') }}</p>
     </div>
-    <div class="container chip-grid">
-        <a class="chip large" href="{{ route('categories.show', 'living-room') }}">{{ __('app.home.categories.items.living-room') }}</a>
-        <a class="chip large" href="{{ route('categories.show', 'bedroom') }}">{{ __('app.home.categories.items.bedroom') }}</a>
-        <a class="chip large" href="{{ route('categories.show', 'kitchen') }}">{{ __('app.home.categories.items.kitchen') }}</a>
-        <a class="chip large" href="{{ route('categories.show', 'office') }}">{{ __('app.home.categories.items.office') }}</a>
-        <a class="chip large" href="{{ route('categories.show', 'outdoor') }}">{{ __('app.home.categories.items.outdoor') }}</a>
-        <a class="chip large" href="{{ route('categories.show', 'commercial') }}">{{ __('app.home.categories.items.commercial') }}</a>
+    <div class="container category-card-grid">
+        <a class="category-card" href="{{ route('categories.show', 'living-room') }}">
+            <div class="cat-icon">🛋️</div>
+            <span class="cat-name">Living Room</span>
+            <span class="cat-desc">Lounge & gathering spaces</span>
+        </a>
+        <a class="category-card" href="{{ route('categories.show', 'bedroom') }}">
+            <div class="cat-icon">🛏️</div>
+            <span class="cat-name">Bedroom</span>
+            <span class="cat-desc">Private retreats & sleep spaces</span>
+        </a>
+        <a class="category-card" href="{{ route('categories.show', 'kitchen') }}">
+            <div class="cat-icon">🍳</div>
+            <span class="cat-name">Kitchen</span>
+            <span class="cat-desc">Chef-friendly layouts</span>
+        </a>
+        <a class="category-card" href="{{ route('categories.show', 'bathroom') }}">
+            <div class="cat-icon">🚿</div>
+            <span class="cat-name">Bathroom</span>
+            <span class="cat-desc">Spa-inspired wet rooms</span>
+        </a>
+        <a class="category-card" href="{{ route('categories.show', 'office') }}">
+            <div class="cat-icon">💼</div>
+            <span class="cat-name">Home Office</span>
+            <span class="cat-desc">Focused work environments</span>
+        </a>
+        <a class="category-card" href="{{ route('categories.show', 'dining-room') }}">
+            <div class="cat-icon">🍽️</div>
+            <span class="cat-name">Dining Room</span>
+            <span class="cat-desc">Elegant dining spaces</span>
+        </a>
+        <a class="category-card" href="{{ route('categories.show', 'kids-room') }}">
+            <div class="cat-icon">🧸</div>
+            <span class="cat-name">Kids Room</span>
+            <span class="cat-desc">Playful & safe spaces</span>
+        </a>
+        <a class="category-card" href="{{ route('categories.show', 'outdoor') }}">
+            <div class="cat-icon">🌿</div>
+            <span class="cat-name">Outdoor</span>
+            <span class="cat-desc">Balconies, patios & gardens</span>
+        </a>
+        <a class="category-card" href="{{ route('categories.show', 'commercial') }}">
+            <div class="cat-icon">🏢</div>
+            <span class="cat-name">Commercial</span>
+            <span class="cat-desc">Offices, retail & hospitality</span>
+        </a>
+        <a class="category-card" href="{{ route('categories.show', 'luxury') }}">
+            <div class="cat-icon">✨</div>
+            <span class="cat-name">Luxury</span>
+            <span class="cat-desc">Premium bespoke interiors</span>
+        </a>
     </div>
 </section>
 
@@ -156,33 +200,30 @@
     </div>
 </section>
 
-<section class="section alt">
-    <div class="container contact-callout-inner">
-        <div>
+<section class="section contact-dark-bg">
+    <div class="container" style="display: block; max-width: 800px; margin: 0 auto; text-align: center;">
+        <div style="margin-bottom: 2rem;">
             <p class="eyebrow">{{ __('app.home.contact.eyebrow') }}</p>
             <h2>{{ __('app.home.contact.title') }}</h2>
-            <p class="section-lead">{{ __('app.home.contact.lead') }}</p>
-            <div class="actions">
-                <a class="btn btn-primary" href="{{ route('contact') }}">{{ __('app.home.contact.primary') }}</a>
-                <a class="btn btn-ghost" href="{{ route('designers.index') }}">{{ __('app.home.contact.secondary') }}</a>
-            </div>
+            <p class="section-lead" style="margin: 0 auto; max-width: 36rem;">{{ __('app.home.contact.lead') }}</p>
         </div>
-        <div class="contact-card-grid">
-            <div class="contact-card">
-                <span class="chip">{{ __('app.home.contact.cards.email.label') }}</span>
-                <p>{{ __('app.home.contact.cards.email.value') }}</p>
-                <a class="text-link" href="mailto:{{ __('app.home.contact.cards.email.value') }}">{{ __('app.home.contact.cards.email.action') }}</a>
+        <form class="form-card" action="{{ route('contact.store') }}" method="post" style="text-align: left;">
+            @csrf
+            <h3>{{ __('app.contact.form.title') }}</h3>
+            <div class="field" style="margin-bottom: 1rem;">
+                <label for="home-contact-name">{{ __('app.contact.form.name') }}</label>
+                <input id="home-contact-name" name="name" type="text" placeholder="{{ __('app.contact.form.name_placeholder') }}" required>
             </div>
-            <div class="contact-card">
-                <span class="chip">{{ __('app.home.contact.cards.phone.label') }}</span>
-                <p>{{ __('app.home.contact.cards.phone.value') }}</p>
-                <a class="text-link" href="tel:{{ __('app.home.contact.cards.phone.value') }}">{{ __('app.home.contact.cards.phone.action') }}</a>
+            <div class="field" style="margin-bottom: 1rem;">
+                <label for="home-contact-email">{{ __('app.contact.form.email') }}</label>
+                <input id="home-contact-email" name="email" type="email" placeholder="{{ __('app.contact.form.email_placeholder') }}" required>
             </div>
-            <div class="contact-card">
-                <span class="chip">{{ __('app.home.contact.cards.location.label') }}</span>
-                <p>{{ __('app.home.contact.cards.location.value') }}</p>
+            <div class="field" style="margin-bottom: 1.5rem;">
+                <label for="home-contact-message">{{ __('app.contact.form.message') }}</label>
+                <textarea id="home-contact-message" name="message" placeholder="{{ __('app.contact.form.message_placeholder') }}" required style="min-height: 110px;"></textarea>
             </div>
-        </div>
+            <button class="btn btn-primary" type="submit">{{ __('app.contact.form.submit') }}</button>
+        </form>
     </div>
 </section>
 

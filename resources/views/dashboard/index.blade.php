@@ -11,40 +11,76 @@
                 <button class="toast-close" type="button" aria-label="Close" data-toast-close>&times;</button>
             </div>
         @endif
+        
         <div class="dashboard-topbar">
-            <form method="post" action="{{ route('auth.logout') }}">
-                @csrf
-                <button class="btn btn-ghost" type="submit">{{ __('app.nav.logout') }}</button>
-            </form>
             <div class="dashboard-actions">
                 <a class="btn btn-primary" href="{{ route('dashboard.projects.index') }}">{{ __('app.dashboard.index.manage_projects') }}</a>
                 <a class="btn btn-ghost" href="{{ route('dashboard.projects.create') }}">{{ __('app.dashboard.projects.new_project') }}</a>
                 <a class="btn btn-ghost" href="{{ route('dashboard.inquiries.index') }}">{{ __('app.dashboard.index.view_inquiries') }}</a>
             </div>
+            <form method="post" action="{{ route('auth.logout') }}">
+                @csrf
+                <button class="btn btn-ghost" type="submit">{{ __('app.nav.logout') }}</button>
+            </form>
         </div>
-        <div class="profile-panel">
-            <div class="profile-photo">
-                @if ($designer && $designer->profile_photo)
-                    <img src="{{ asset('storage/' . $designer->profile_photo) }}" alt="{{ $designer->user?->name ?? __('app.designers.show.title_fallback') }}">
-                @else
-                    <span>{{ strtoupper(substr($designer?->user?->name ?? 'D', 0, 1)) }}</span>
-                @endif
+
+        <div class="dashboard-intro">
+            @php
+                $fullName = $designer?->user?->name ?? __('app.designers.show.title_fallback');
+                $nameParts = explode(' ', $fullName, 2);
+                $firstName = $nameParts[0] ?? $fullName;
+                $lastName = $nameParts[1] ?? '';
+            @endphp
+            <h1 class="bold-heading">Welcome back, <span class="text-accent">{{ $firstName }}</span></h1>
+            <p class="lead">{{ __('app.dashboard.index.lead') }}</p>
+        </div>
+
+        <div class="profile-panel-premium">
+            <div class="profile-aside">
+                <div class="profile-photo-large">
+                    @if ($designer && $designer->profile_photo)
+                        <img src="{{ asset('storage/' . $designer->profile_photo) }}" alt="{{ $fullName }}">
+                    @else
+                        <span>{{ strtoupper(substr($firstName, 0, 1)) }}</span>
+                    @endif
+                </div>
+                <p class="profile-status-italic"><i>Currently active & available</i></p>
             </div>
-            <div class="profile-info">
-                <p class="eyebrow">{{ __('app.dashboard.index.eyebrow') }}</p>
-                <h2>{{ $designer?->user?->name ?? __('app.designers.show.title_fallback') }}</h2>
-                <p class="profile-role">
-                    {{ $designer?->specialization ?? __('app.designers.show.specialty_fallback') }}
-                </p>
-                <p class="lead">
-                    {{ $designer?->bio ?? __('app.designers.show.bio_fallback') }}
-                </p>
+            
+            <div class="profile-details-main">
+                <div class="details-grid">
+                    <div class="detail-group">
+                        <label>First Name</label>
+                        <p>{{ $firstName }}</p>
+                    </div>
+                    <div class="detail-group">
+                        <label>Last Name</label>
+                        <p>{{ $lastName ?: '-' }}</p>
+                    </div>
+                    <div class="detail-group">
+                        <label>Email Address</label>
+                        <p>{{ $designer?->user?->email }}</p>
+                    </div>
+                    <div class="detail-group">
+                        <label>Phone Number</label>
+                        <p>{{ $designer?->phone ?? 'Not provided' }}</p>
+                    </div>
+                </div>
+                
+                <div class="profile-footer-actions">
+                    <a href="{{ route('dashboard.profile.edit') }}" class="btn btn-ghost">{{ __('app.dashboard.projects.edit_profile') }}</a>
+                </div>
             </div>
-            <div class="profile-meta">
-                <p><strong>{{ __('app.dashboard.profile.city') }}:</strong> {{ $designer?->city ?? __('app.designers.index.city_fallback') }}</p>
-                <p><strong>{{ __('app.dashboard.profile.education') }}:</strong> {{ $designer?->education ?? __('app.dashboard.profile.complete_required') }}</p>
-                <p><strong>{{ __('app.dashboard.profile.certifications') }}:</strong> {{ $designer?->certifications ?? __('app.dashboard.profile.complete_required') }}</p>
-                <p><strong>{{ __('app.dashboard.profile.phone') }}:</strong> {{ $designer?->phone ?? __('app.dashboard.profile.phone_placeholder') }}</p>
+
+            <div class="profile-stats-brief">
+                <div class="brief-stat">
+                    <span class="brief-label">{{ __('app.dashboard.index.published_title') }}</span>
+                    <span class="brief-value">{{ $projects->where('is_published', true)->count() }}</span>
+                </div>
+                <div class="brief-stat">
+                    <span class="brief-label">Total Views</span>
+                    <span class="brief-value">1.2k</span>
+                </div>
             </div>
         </div>
     </div>

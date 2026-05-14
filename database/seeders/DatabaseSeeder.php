@@ -24,19 +24,49 @@ class DatabaseSeeder extends Seeder
                 'description' => 'Gathering spaces designed for calm routines and layered light.',
             ],
             [
-                'name' => 'Kitchen',
-                'slug' => 'kitchen',
-                'description' => 'Chef-friendly layouts, natural materials, and warm textures.',
-            ],
-            [
                 'name' => 'Bedroom',
                 'slug' => 'bedroom',
                 'description' => 'Private retreats with soft palettes and tailored storage.',
             ],
             [
-                'name' => 'Office',
+                'name' => 'Kitchen',
+                'slug' => 'kitchen',
+                'description' => 'Chef-friendly layouts, natural materials, and warm textures.',
+            ],
+            [
+                'name' => 'Bathroom',
+                'slug' => 'bathroom',
+                'description' => 'Spa-inspired wet rooms and serene vanity designs.',
+            ],
+            [
+                'name' => 'Home Office',
                 'slug' => 'office',
                 'description' => 'Focused workspaces with acoustic control and flexible zones.',
+            ],
+            [
+                'name' => 'Dining Room',
+                'slug' => 'dining-room',
+                'description' => 'Elegant dining spaces crafted for memorable meals.',
+            ],
+            [
+                'name' => 'Kids Room',
+                'slug' => 'kids-room',
+                'description' => 'Playful, safe, and imaginative spaces for children.',
+            ],
+            [
+                'name' => 'Outdoor',
+                'slug' => 'outdoor',
+                'description' => 'Balconies, patios, and garden spaces brought to life.',
+            ],
+            [
+                'name' => 'Commercial',
+                'slug' => 'commercial',
+                'description' => 'Office, retail, and hospitality interiors at scale.',
+            ],
+            [
+                'name' => 'Luxury',
+                'slug' => 'luxury',
+                'description' => 'Premium bespoke interiors with exceptional craftsmanship.',
             ],
         ];
 
