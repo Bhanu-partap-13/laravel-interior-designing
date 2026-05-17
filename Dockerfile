@@ -40,8 +40,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         libjpeg62-turbo-dev \
         libfreetype6-dev \
         libonig-dev \
-        libpq-dev \
         libcurl4-openssl-dev \
+        default-libmysqlclient-dev \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j"$(nproc)" \
         bcmath \
@@ -51,8 +51,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         mbstring \
         opcache \
         pdo_mysql \
-        pdo_pgsql \
-        pdo_sqlite \
         zip \
     && rm -rf /var/lib/apt/lists/*
 
@@ -62,8 +60,9 @@ COPY . .
 
 RUN php artisan package:discover --ansi
 
-RUN mkdir -p storage/framework/cache storage/framework/sessions storage/framework/views bootstrap/cache \
+RUN mkdir -p storage/app/public storage/framework/cache storage/framework/sessions storage/framework/views bootstrap/cache \
     && chown -R www-data:www-data storage bootstrap/cache
+RUN chown -R www-data:www-data public
 
 USER www-data
 
