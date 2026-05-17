@@ -243,7 +243,7 @@
                     <article class="project-item">
                         <div class="project-thumb">
                             <img
-                                src="{{ $project->after_image ? asset('storage/' . $project->after_image) : 'https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=600&q=80' }}"
+                                src="{{ $project->after_image ? asset('storage/' . $project->after_image) : asset('placeholder.svg') }}"
                                 alt="{{ $project->title }}"
                             >
                         </div>

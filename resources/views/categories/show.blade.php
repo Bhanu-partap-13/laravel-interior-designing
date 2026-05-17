@@ -20,7 +20,7 @@
                         </div>
                         <img
                             class="card-image"
-                            src="{{ $project->after_image ? asset('storage/' . $project->after_image) : 'https://images.unsplash.com/photo-1501045661006-fcebe0257c3f?auto=format&fit=crop&w=800&q=80' }}"
+                            src="{{ $project->after_image ? asset('storage/' . $project->after_image) : asset('placeholder.svg') }}"
                             alt="{{ $project->title }}"
                         >
                         <h3>{{ $project->title }}</h3>

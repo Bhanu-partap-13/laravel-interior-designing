@@ -59,7 +59,7 @@ $videoExtensions = ['mp4', 'webm', 'mov'];
         <article class="card">
             <img
                 class="card-image"
-                src="{{ $project->before_image ? asset('storage/' . $project->before_image) : 'https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=900&q=80' }}"
+                src="{{ $project->before_image ? asset('storage/' . $project->before_image) : asset('placeholder.svg') }}"
                 alt="{{ __('app.projects.show.before') }}"
             >
             <p>{{ __('app.projects.show.gallery_before_text') }}</p>
@@ -67,7 +67,7 @@ $videoExtensions = ['mp4', 'webm', 'mov'];
         <article class="card">
             <img
                 class="card-image"
-                src="{{ $project->after_image ? asset('storage/' . $project->after_image) : 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80' }}"
+                src="{{ $project->after_image ? asset('storage/' . $project->after_image) : asset('placeholder.svg') }}"
                 alt="{{ __('app.projects.show.after') }}"
             >
             <p>{{ __('app.projects.show.gallery_after_text') }}</p>
@@ -122,7 +122,7 @@ $videoExtensions = ['mp4', 'webm', 'mov'];
                     </div>
                     <img
                         class="card-image"
-                        src="{{ $relatedProject->after_image ? asset('storage/' . $relatedProject->after_image) : 'https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=800&q=80' }}"
+                        src="{{ $relatedProject->after_image ? asset('storage/' . $relatedProject->after_image) : asset('placeholder.svg') }}"
                         alt="{{ $relatedProject->title }}"
                     >
                     <h3>{{ $relatedProject->title }}</h3>
